@@ -673,6 +673,10 @@ body.light-theme {
   /* background-color: red; */
   place-self: end;
 }
+.qualification__data.qualification__work > :last-child {
+  /* background-color: red; */
+  place-self: start;
+}
 
 .qualification__title {
   font-size: var(--normal-font-size);
@@ -830,6 +834,8 @@ body.light-theme {
 /*=============== WORK ===============*/
 .work__container {
   padding-top: 1rem;
+  grid-template-columns: 1fr;
+  place-items: center;
 }
 
 .work__filters {
@@ -947,8 +953,9 @@ body.light-theme {
 
 /*=============== CONTACT ===============*/
 .contact__container {
-  row-gap: 3rem;
+  /* row-gap: 3rem; */
   padding-bottom: 3rem;
+  display: block;
 }
 
 .contact__title {
@@ -958,8 +965,14 @@ body.light-theme {
 }
 
 .contact__info {
-  display: grid;
-  gap: 1rem;
+  /* display: grid; */
+  /* gap: 1rem; */
+  display: block;
+}
+.contact__info > div {
+  /* width: calc(33.33% - 0.5rem); */
+  width: 100%;
+  margin-bottom: var(--mb-1);
 }
 
 .contact__card {
@@ -1215,8 +1228,15 @@ body.light-theme {
   }
 
   .contact__info {
-    grid-template-columns: 300px;
-    justify-content: center;
+    /* grid-template-columns: 300px; */
+    /* justify-content: center; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .contact__info > div {
+    width: calc(33.33% - 0.5rem);
+    /* width: 100%; */
   }
 
   .contact__form {
@@ -1234,9 +1254,9 @@ body.light-theme {
   }
 
   .contact__container {
-    grid-template-columns: repeat(2, max-content);
+    /* grid-template-columns: repeat(2, max-content);
     justify-content: center;
-    column-gap: 3rem;
+    column-gap: 3rem; */
   }
   .img__about {
     text-align: center;
@@ -1329,6 +1349,7 @@ body.light-theme {
 
   .work__container {
     gap: 3rem;
+    grid-template-columns: repeat(3, max-content);
   }
 
   .work__card {
