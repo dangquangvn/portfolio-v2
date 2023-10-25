@@ -717,6 +717,12 @@ body.light-theme {
   position: relative;
   transform: skew(-12deg);
   padding: 0.25rem 1rem;
+  transition: all 0.4s cubic-bezier(0.26, 0.1, 0.39, 1.29) 0s;
+
+}
+
+.qualification__title:hover {
+  letter-spacing: .1rem;
 }
 
 .qualification__title::before {
