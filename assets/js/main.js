@@ -31,13 +31,62 @@ modalClose.forEach((mc) => {
 });
 
 /*=============== MIXITUP FILTER PORTFOLIO ===============*/
-let mixerPortfolio = mixitup(".work__container", {
+const containerEl = document.querySelector(".work__container");
+let mixerPortfolio = mixitup(containerEl, {
   selectors: {
     target: ".work__card",
   },
-  animation: {
-    duration: 300,
+  controls: {
+    toggleDefault: "all",
   },
+  // dirtyCheck: true,
+  animation: {
+    duration: 200,
+    // queueLimit: 1,
+    enable: false,
+  },
+  callbacks: {
+    // onMixStart: function(state){
+    //     // remove the animation class
+    //     $('#container > .mix').removeClass('fc-mixer-end');
+    //     // trigger items reflow
+    //     $('#container > .mix').width();
+    // },
+
+    onMixStart(state) {
+      // Remove the animation class
+      var mixElements = document.querySelectorAll(".work__container > .mix");
+      mixElements.forEach(function (element) {
+        element.classList.remove("fc-mixer-end");
+      });
+
+      // Trigger items reflow
+      mixElements.forEach(function (element) {
+        element.offsetWidth;
+      });
+    },
+    // onMixEnd: function (state) {
+    //   // add the animation class
+    //   $("#container > .mix").addClass("fc-mixer-end");
+    // },
+    onMixEnd(state) {
+      // Add the animation class
+      var mixElements = document.querySelectorAll(".work__container > .mix");
+      mixElements.forEach(function (element) {
+        element.classList.add("fc-mixer-end");
+      });
+    },
+  },
+  // animation: {
+  //   effects: "fade translateZ(-100px)",
+  // },
+  // callbacks: {
+  //   onMixFail: function (state) {
+  //     alert(
+  //       "Sorry no products match your selections, click clear filters to view full range!"
+  //     );
+  //   },
+  // },
 });
 
 /* Link active work */
@@ -145,15 +194,15 @@ themeButton.addEventListener("click", () => {
 });
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
-const sr = ScrollReveal({
-  origin: "top",
-  distance: "60px",
-  duration: 2500,
-  delay: 400,
-  reset: true,
-});
+// const sr = ScrollReveal({
+//   origin: "top",
+//   distance: "60px",
+//   duration: 2500,
+//   delay: 400,
+//   reset: true,
+// });
 
-sr.reveal(`.home__data`);
-sr.reveal(`.home__handle`, { delay: 700 });
-// sr.reveal(`.home__social, .home__scroll`, { delay: 900, origin: "botton" });
-sr.reveal(`.home__social, .home__scroll`, { delay: 900 });
+// sr.reveal(`.home__data`);
+// sr.reveal(`.home__handle`, { delay: 700 });
+// // sr.reveal(`.home__social, .home__scroll`, { delay: 900, origin: "botton" });
+// sr.reveal(`.home__social, .home__scroll`, { delay: 900 });
